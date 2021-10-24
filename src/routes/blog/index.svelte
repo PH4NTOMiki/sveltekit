@@ -25,6 +25,7 @@
     //let { title, txt } = article;
 </script>
 <svelte:head><title>All articles</title></svelte:head>
+<a sveltekit:prefetch href={`/`}>Homepage</a>
 {#each articles as {title, slug}}
     <a sveltekit:prefetch href={`/blog/${slug}`}>{title}</a><br/>
 {/each}
