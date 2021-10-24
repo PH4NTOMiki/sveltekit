@@ -30,7 +30,7 @@
     let { title, txt } = article;
 </script>
 <svelte:head><title>{title || `No articles`}</title></svelte:head>
-<a sveltekit:prefetch href={`/`}>Homepage</a>
+<a sveltekit:prefetch href={`/`}>Homepage</a><br/>
 {#if !article.error}
 	Title: {title}
 	<br/><br/>
