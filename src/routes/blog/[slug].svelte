@@ -38,4 +38,3 @@
 	No article
 {/if}
 <br/>
-<a sveltekit:prefetch href={`/blog`}>All</a>
