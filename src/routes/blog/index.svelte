@@ -24,6 +24,7 @@
     export let articles;
     //let { title, txt } = article;
 </script>
+<svelte:head><title>All articles</title></svelte:head>
 {#each articles as {title, slug}}
-    <a sveltekit:prefetch href={`/blog/${slug}`}>{title}</a>
+    <a sveltekit:prefetch href={`/blog/${slug}`}>{title}</a><br/>
 {/each}

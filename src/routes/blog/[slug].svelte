@@ -29,6 +29,7 @@
     export let article;
     let { title, txt } = article;
 </script>
+<svelte:head><title>{title || `No articles`}</title></svelte:head>
 {#if !article.error}
 	Title: {title}
 	<br/><br/>
