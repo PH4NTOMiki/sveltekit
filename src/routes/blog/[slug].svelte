@@ -29,12 +29,10 @@
     export let article;
     let { title, txt } = article;
 </script>
-<svelte:head><title>{title || `No articles`}</title></svelte:head>
+<svelte:head><title>{title || `No article`}</title></svelte:head>
 {#if !article.error}
-	Title: {title}
-	<br/><br/>
+	<h2>{title}</h2>
 	{txt}
 {:else}
-	No article
+	<h2>No article</h2>
 {/if}
-<br/>
