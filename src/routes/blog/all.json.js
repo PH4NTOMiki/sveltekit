@@ -1,23 +1,19 @@
 import * as mongo from 'mongodb';
 
 
-export async function get({ params }) {
+export async function get() {
 	// the `slug` parameter is available because this file
 	// is called [slug].json.js
-	const { slug } = params;
+	//const { slug } = params;
 
 	let client = await mongo.MongoClient.connect("mongodb://localhost");
     let db = client.db("sveltekit1");
 	let collection = db.collection('blogposts');
-	const article = await collection.findOne({ slug });
+	const articles = await collection.find({}).toArray();
 
-	if (article) {
+	if (articles) {
 		return {
-			body: article
-		};
-	} else {
-		return {
-			body: {error: true}
+			body: articles
 		};
 	}
 }
