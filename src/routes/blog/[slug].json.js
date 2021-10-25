@@ -15,9 +15,5 @@ export async function get({ params }) {
 		return {
 			body: article
 		};
-	} else {
-		return {
-			body: {error: true}
-		};
 	}
 }
