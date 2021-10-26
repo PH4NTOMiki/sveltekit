@@ -8,4 +8,6 @@
 </nav>-->
 <Nav home={true} links={{'/blog':'Blog'}} />
 
-<slot></slot>
+<div class="container">
+	<slot></slot>
+</div>
