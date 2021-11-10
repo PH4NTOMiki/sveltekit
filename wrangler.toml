@@ -2,7 +2,6 @@ name = "sveltekit-supabase"
 type = "javascript"
 route = ''
 zone_id = ''
-article_id = 'c5fea044f2344e646461a37c1bd4db91'
 usage_model = ''
 compatibility_flags = []
 workers_dev = true
