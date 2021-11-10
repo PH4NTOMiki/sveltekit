@@ -1,15 +1,11 @@
-import * as mongo from 'mongodb';
-
-let client = null;
-let db = null;
+import {createClient, SupabaseClient} from '@supabase/supabase-js';
+/*const obj = typeof(self)!=='undefined'&&self.fetch ? {'fetch':self.fetch} : {};*/
+const [supabaseUrl, supabaseToken] = (typeof(VITE_SUPABASE)!=='undefined'?VITE_SUPABASE: import.meta.env.VITE_SUPABASE).split('::::');
+const client = createClient(supabaseUrl, supabaseToken, {'fetch':fetch.bind(self)});
 /**
  * 
- * @returns {{client: mongo.MongoClient, db: mongo.Db}}
+ * @returns {SupabaseClient}
  */
-export async function connectToDB() {
-  if(!client) {
-    client = await mongo.MongoClient.connect(process.env['VITE_MONGODB_URI'] || import.meta.env.VITE_MONGODB_URI);
-    db = client.db("sveltekit1");
-  }
-  return { client, db }
+export function connectToDB(){
+  return client;
 }

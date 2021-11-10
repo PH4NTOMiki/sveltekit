@@ -9,9 +9,8 @@ export async function get() {
 	// is called [slug].json.js
 	//const { slug } = params;
 
-	let { client, db } = await connectToDB();
-	let collection = db.collection('blogposts');
-	const articles = await collection.find({}).toArray();
+	let db = connectToDB();
+	const {data:articles, error} = await db.from('blogposts').select();
 
 	if (articles) {
 		return {
