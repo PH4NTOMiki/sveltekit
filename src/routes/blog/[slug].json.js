@@ -1,5 +1,5 @@
 //import * as mongo from 'mongodb';
-import {connectToDB} from '$lib/database.js';
+import db from '$lib/database.js';
 
 /**
  * @type {import('@sveltejs/kit').RequestHandler}
@@ -9,8 +9,7 @@ export async function get({ params }) {
 	// is called [slug].json.js
 	const { slug } = params;
 
-	let db = connectToDB();
-	const {data:article, error} = await db.from('blogposts').select().eq('slug',slug).single();
+	const article = await db.collection('blogposts').findOne({slug});
 
 	if (article) {
 		return {

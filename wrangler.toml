@@ -1,4 +1,4 @@
-name = "sveltekit-supabase"
+name = "sveltekit-mongodb-data"
 type = "javascript"
 route = ''
 zone_id = ''
